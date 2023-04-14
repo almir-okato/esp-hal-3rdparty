@@ -92,8 +92,10 @@ void bootloader_enable_random(void)
 
 void bootloader_print_banner(void)
 {
+#ifdef IDF_VER
     ESP_EARLY_LOGI(TAG, "ESP-IDF %s 2nd stage bootloader", IDF_VER);
 #ifndef CONFIG_APP_REPRODUCIBLE_BUILD
     ESP_EARLY_LOGI(TAG, "compile time " __DATE__ " " __TIME__);
+#endif
 #endif
 }
